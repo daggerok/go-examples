@@ -1,18 +1,22 @@
-= go-playground-examples
+= go-playground-examples image:https://travis-ci.org/daggerok/go-playground-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-playground-examples"]
 
 01-webapp
 
+.build
 [source,bash]
-----
-# compile
 export GOPATH="$GOPATH:$PWD"
 go install 01-webapp
 
-# run
+.run
+[source,bash]
+----
 ./bin/01-webapp
+----
 
-# test web server
-http :8080
+.test
+[source,bash]
+----
+$ http :8080
 HTTP/1.1 200 OK
 Content-Length: 4
 Content-Type: text/plain; charset=utf-8
