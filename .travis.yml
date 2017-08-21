@@ -23,7 +23,8 @@ before_install:
 script:
   - export GOPATH="$GOPATH:$PWD"
   - >
-    for goApp in 02-http-handler \
+    for goApp in 03-handler-func \
+                 02-http-handler \
                  01-webapp; do
 
       go install $goApp;

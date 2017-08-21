@@ -1,6 +1,6 @@
 = go-examples image:https://travis-ci.org/daggerok/go-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-examples"]
 
-==== 01-webapp
+== 01-webapp
 
 .build
 [source,bash]
@@ -25,7 +25,7 @@ Date: Mon, 21 Aug 2017 02:08:05 GMT
 hey!
 ----
 
-==== 02-http-handler
+== 02-http-handler
 
 .build
 [source,bash]
@@ -33,4 +33,14 @@ hey!
 export GOPATH="$GOPATH:$PWD"
 go install 02-http-handler
 ./bin/02-http-handler
+----
+
+== 03-handler-func
+
+.build
+[source,bash]
+----
+export GOPATH="$GOPATH:$PWD"
+go install 03-handler-func
+./bin/03-handler-func
 ----
