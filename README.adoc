@@ -1,5 +1,7 @@
 = go-examples image:https://travis-ci.org/daggerok/go-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-examples"]
 
+This repository is contains go playground with basic examples of web application.
+
 . link:src/01-webapp/[Getting started webapp]
 . link:src/02-http-handler/[http.Handler]
 . link:src/03-handler-func/[http.HandlerFunc]
