@@ -27,7 +27,7 @@ hey!
 
 == 02-http-handler
 
-.build
+.build and run
 [source,bash]
 ----
 export GOPATH="$GOPATH:$PWD"
@@ -37,10 +37,20 @@ go install 02-http-handler
 
 == 03-handler-func
 
-.build
+.build and run
 [source,bash]
 ----
 export GOPATH="$GOPATH:$PWD"
 go install 03-handler-func
 ./bin/03-handler-func
+----
+
+== 04-built-in-handlers
+
+.build and run
+[source,bash]
+----
+export GOPATH="$GOPATH:$PWD"
+go install 04-built-in-handlers
+./bin/04-built-in-handlers
 ----
