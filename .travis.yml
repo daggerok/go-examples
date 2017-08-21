@@ -22,11 +22,15 @@ before_install:
 
 script:
   - export GOPATH="$GOPATH:$PWD"
-  - go install 01-webapp
-  - ./bin/01-webapp &
-  - sleep 1
-  - curl localhost:8080
-  - http :8080
+  - >
+    for goApp in 02-http-handler \
+                 01-webapp; do
 
-after_script:
-  - killall -9 01-webapp
+      go install $goApp;
+      ./bin/$goApp &
+      sleep 1;
+      curl localhost:8080;
+      http :8080;
+      killall -9 $goApp;
+
+    done;
