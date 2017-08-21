@@ -33,9 +33,7 @@ script:
   - killall -9 $goApp
 
   - >
-    for goApp in 05-http-serve-file \
-                 04-file-server; do
-
+    for goApp in 05-http-serve-file 04-file-server; do
       go install $goApp
       ./bin/$goApp &
       sleep 1
@@ -43,19 +41,14 @@ script:
       http :8080/files/index.html
       http :8080/files/favicon.ico
       killall -9 $goApp;
-
     done;
 
   - >
-    for goApp in 03-handler-func \
-                 02-http-handler \
-                 01-webapp; do
-
+    for goApp in 03-handler-func 02-http-handler 01-webapp; do
       go install $goApp;
       ./bin/$goApp &
       sleep 1;
       curl localhost:8080;
       http :8080;
       killall -9 $goApp;
-
     done;
