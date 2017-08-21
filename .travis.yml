@@ -22,9 +22,18 @@ before_install:
 
 script:
   - export GOPATH="$GOPATH:$PWD"
+
+  - export goApp=04-file-server
+  - go install $goApp
+  - ./bin/$goApp &
+  - sleep 1
+  - curl localhost:8080/files/index.html
+  - http :8080/files/index.html
+  - http :8080/files/favicon.ico
+  - killall -9 $goApp;
+
   - >
-    for goApp in 04-built-in-handlers \
-                 03-handler-func \
+    for goApp in 03-handler-func \
                  02-http-handler \
                  01-webapp; do
 
