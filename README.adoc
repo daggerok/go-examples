@@ -1,4 +1,4 @@
-= go-playground-examples image:https://travis-ci.org/daggerok/go-playground-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-playground-examples"]
+= go-examples image:https://travis-ci.org/daggerok/go-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-examples"]
 
 01-webapp
 
