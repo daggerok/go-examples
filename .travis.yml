@@ -1,0 +1,29 @@
+group: edge
+dist: trusty
+
+language: go
+
+go:
+  - 1.x
+  - 1.6
+  - 1.7.x
+  - 1.8.x
+  - master
+
+install: true
+before_install:
+  # install docker-compose
+  - sudo apt update
+  - sudo apt install -y python-pip curl jq libxml2-utils
+  - sudo pip install --upgrade httpie
+
+script:
+  - export GOPATH="$GOPATH:$PWD"
+  - go install 01-webapp
+  - ./bin/01-webapp &
+  - sleep 1
+  - curl localhost:8080
+  - http :8080
+
+after_script:
+  - killall -9 01-webapp

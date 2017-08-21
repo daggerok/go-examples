@@ -1,0 +1,22 @@
+= go-playground-examples
+
+01-webapp
+
+[source,bash]
+----
+# compile
+export GOPATH="$GOPATH:$PWD"
+go install 01-webapp
+
+# run
+./bin/01-webapp
+
+# test web server
+http :8080
+HTTP/1.1 200 OK
+Content-Length: 4
+Content-Type: text/plain; charset=utf-8
+Date: Mon, 21 Aug 2017 02:08:05 GMT
+
+hey!
+----
