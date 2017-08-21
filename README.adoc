@@ -1,57 +1,8 @@
 = go-examples image:https://travis-ci.org/daggerok/go-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-examples"]
 
-== 01-webapp
-
-.build
-[source,bash]
-export GOPATH="$GOPATH:$PWD"
-go install 01-webapp
-
-.run
-[source,bash]
-----
-./bin/01-webapp
-----
-
-.test
-[source,bash]
-----
-$ http :8080
-HTTP/1.1 200 OK
-Content-Length: 4
-Content-Type: text/plain; charset=utf-8
-Date: Mon, 21 Aug 2017 02:08:05 GMT
-
-hey!
-----
-
-== 02-http-handler
-
-.build and run
-[source,bash]
-----
-export GOPATH="$GOPATH:$PWD"
-go install 02-http-handler
-./bin/02-http-handler
-----
-
-== 03-handler-func
-
-.build and run
-[source,bash]
-----
-export GOPATH="$GOPATH:$PWD"
-go install 03-handler-func
-./bin/03-handler-func
-----
-
-== built in handlers
-=== 04-file-server
-
-.build and run
-[source,bash]
-----
-export GOPATH="$GOPATH:$PWD"
-go install 04-file-server
-./bin/04-file-server
-----
+. link:01-webapp/[Getting started webapp]
+. link:02-http-handler/[http.Handler]
+. link:03-handler-func/[http.HandlerFunc]
+. link:04-file-server/[file server]
+. link:05-http-serve-file/[http file server]
+. link:06-http-server-even-more-simpler/[file server in one line of code]

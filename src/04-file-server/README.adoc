@@ -1,0 +1,9 @@
+= 04-file-server image:https://travis-ci.org/daggerok/go-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-examples"]
+
+.build and run
+[source,bash]
+----
+export GOPATH="$GOPATH:$PWD"
+go install 04-file-server
+./bin/04-file-server
+----

@@ -1,0 +1,24 @@
+= 01-webapp image:https://travis-ci.org/daggerok/go-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-examples"]
+
+.build
+[source,bash]
+export GOPATH="$GOPATH:$PWD"
+go install 01-webapp
+
+.run
+[source,bash]
+----
+./bin/01-webapp
+----
+
+.test
+[source,bash]
+----
+$ http :8080
+HTTP/1.1 200 OK
+Content-Length: 4
+Content-Type: text/plain; charset=utf-8
+Date: Mon, 21 Aug 2017 02:08:05 GMT
+
+hey!
+----

@@ -1,0 +1,9 @@
+= 06-http-server-even-more-simpler image:https://travis-ci.org/daggerok/go-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-examples"]
+
+.build and run
+[source,bash]
+----
+export GOPATH="$GOPATH:$PWD"
+go install 06-http-server-even-more-simpler
+./bin/06-http-server-even-more-simpler
+----
