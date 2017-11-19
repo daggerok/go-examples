@@ -1,0 +1,9 @@
+= http-handler image:https://travis-ci.org/daggerok/go-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-examples"]
+
+.build and run
+[source,bash]
+----
+export GOPATH="$GOPATH:$PWD"
+go install http-handler
+./bin/http-handler
+----

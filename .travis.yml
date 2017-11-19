@@ -24,7 +24,7 @@ before_install:
 script:
   - export GOPATH="$GOPATH:$PWD"
 
-  - export goApp=06-http-server-even-more-simpler
+  - export goApp=http-server-even-more-simpler
   - go install $goApp
   - ./bin/$goApp &
   - sleep 1
@@ -33,7 +33,10 @@ script:
   - killall -9 $goApp
 
   - >
-    for goApp in 05-http-serve-file 04-file-server; do
+    for goApp in \
+      http-serve-file \
+      file-server\
+    ; do
       go install $goApp
       ./bin/$goApp &
       sleep 1
@@ -44,7 +47,11 @@ script:
     done;
 
   - >
-    for goApp in 03-handler-func 02-http-handler 01-webapp; do
+    for goApp in \
+      handler-func \
+      http-handler \
+      webapp \
+    ; do
       go install $goApp;
       ./bin/$goApp &
       sleep 1;
