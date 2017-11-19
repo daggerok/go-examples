@@ -1,0 +1,10 @@
+= mvc image:https://travis-ci.org/daggerok/go-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-examples"]
+
+.build and run
+[source,bash]
+----
+export GOPATH="$GOPATH:$PWD"
+cd src/mvc
+go install .
+../../bin/mvc
+----

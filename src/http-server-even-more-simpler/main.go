@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-  http.ListenAndServe(":8080", http.FileServer(http.Dir("src/04-file-server")))
+  http.ListenAndServe(":8080", http.FileServer(http.Dir("src/file-server")))
 }

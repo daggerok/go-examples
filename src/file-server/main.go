@@ -15,7 +15,7 @@ func setContentType(writer http.ResponseWriter, contentType string) {
 func main() {
   http.HandleFunc("/", func(response http.ResponseWriter, request *http.Request) {
     path := request.URL.Path
-    file, err := os.Open("src/04-file-server" + path)
+    file, err := os.Open("src/file-server" + path)
     if err != nil {
       response.WriteHeader(http.StatusInternalServerError)
       switch {

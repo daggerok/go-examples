@@ -8,3 +8,4 @@ This repository is contains go playground with basic examples of web application
 . link:src/file-server/[file server]
 . link:src/http-serve-file/[http file server]
 . link:src/http-server-even-more-simpler/[file server in one line of code]
+. link:src/mvc/[go mvc]
