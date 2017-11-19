@@ -5,9 +5,10 @@ language: go
 
 go:
   - 1.x
-  - 1.6
+  - 1.6.x
   - 1.7.x
   - 1.8.x
+  - 1.9.x
   - master
 
 install: true
@@ -19,10 +20,6 @@ before_install:
   - sudo apt install -y python-pip curl jq libxml2-utils
   - sudo pip install --upgrade httpie
 
-#  # install docker-compose
-#  - sudo pip install --upgrade docker-compose
-#  - sudo usermod -aG docker $(whoami)
-
   # daggerok bash functions
   - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
 
@@ -30,30 +27,28 @@ before_install:
   - stop_any 5432 8080
 
 script:
-  - export GOPATH="$GOPATH:$PWD"
+  - export GOPATH="${GOPATH}:${PWD}"
 
   - export goApp=http-server-even-more-simpler
   - go install $goApp
   - ./bin/$goApp &
-  - sleep 1
+  - wait_for 8080
   - curl localhost:8080/files/
   - http :8080/files/
-#  - killall -9 $goApp
   - stop_any 8080
 
   - >
     for goApp in \
       http-serve-file \
-      file-server\
+      file-server \
     ; do
       go install $goApp
       ./bin/$goApp &
-      sleep 1
+      wait_for 8080
       curl localhost:8080/files/index.html
       http :8080/files/index.html
       http :8080/files/favicon.ico
-#     killall -9 $goApp
-     stop_any 8080
+      stop_any 8080
     done;
 
   - >
@@ -62,11 +57,10 @@ script:
       http-handler \
       webapp \
     ; do
-      go install $goApp;
+      go install $goApp
       ./bin/$goApp &
-      sleep 1;
-      curl localhost:8080;
-      http :8080;
-#     killall -9 $goApp
-     stop_any 8080
-    done;
+      wait_for 8080
+      curl localhost:8080
+      http :8080
+      stop_any 8080
+    done
