@@ -13,13 +13,21 @@ go:
 install: true
 
 before_install:
-  # install docker-compose
   - sudo apt update
+
+  # install docker-compose
   - sudo apt install -y python-pip curl jq libxml2-utils
-  - sudo pip install --upgrade httpie docker-compose
-  - sudo usermod -aG docker $(whoami)
+  - sudo pip install --upgrade httpie
+
+#  # install docker-compose
+#  - sudo pip install --upgrade docker-compose
+#  - sudo usermod -aG docker $(whoami)
+
+  # daggerok bash functions
+  - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
+
   # kill on ports
-  - true | sudo kill $(sudo lsof -t -i:5432)
+  - stop_any 5432 8080
 
 script:
   - export GOPATH="$GOPATH:$PWD"
@@ -30,7 +38,8 @@ script:
   - sleep 1
   - curl localhost:8080/files/
   - http :8080/files/
-  - killall -9 $goApp
+#  - killall -9 $goApp
+  - stop_any 8080
 
   - >
     for goApp in \
@@ -43,7 +52,8 @@ script:
       curl localhost:8080/files/index.html
       http :8080/files/index.html
       http :8080/files/favicon.ico
-      killall -9 $goApp;
+#     killall -9 $goApp
+     stop_any 8080
     done;
 
   - >
@@ -57,5 +67,6 @@ script:
       sleep 1;
       curl localhost:8080;
       http :8080;
-      killall -9 $goApp;
+#     killall -9 $goApp
+     stop_any 8080
     done;
