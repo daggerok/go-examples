@@ -31,6 +31,8 @@ before_install:
 script:
 - export GOPATH="$GOPATH:$(pwd)"
 
+- bash ./src/hello-world/run.bash
+
 - export goApp=http-server-even-more-simpler
 - go install $goApp
 - ./bin/$goApp &
