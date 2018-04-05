@@ -1,0 +1,7 @@
+= golang-methods image:https://travis-ci.org/daggerok/go-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-examples"]
+
+.build and run
+[source,bash]
+----
+bash src/golang-methods/run.bash
+----
