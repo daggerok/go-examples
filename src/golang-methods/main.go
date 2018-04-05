@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 // person type
 type person struct {
@@ -16,7 +19,7 @@ func (p person) sayHi() {
 
 func main() {
 	maksimko := person{
-		age: 35,
+		age: time.Now().Year() - 1983,
 		name: "Maksimko",
 	}
 	maksimko.sayHi()

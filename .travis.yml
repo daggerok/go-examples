@@ -15,22 +15,21 @@ go:
 install: true
 before_install:
 - sudo apt update >/dev/null 2>&1 || true
-- sudo apt install -y --no-install-recommends python-pip curl jq libxml2-utils >/dev/null 2>&1 || true
-- sudo pip install --upgrade httpie >/dev/null 2>&1 || true
+- sudo apt install -y --no-install-recommends python-pip curl bash >/dev/null 2>&1
+- sudo pip install --upgrade httpie >/dev/null 2>&1
 - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
 - stop_any 5432 8080 80
 
 script:
-- export GOPATH="$GOPATH:$(pwd)"
-
 - |
   for goApp in \
     hello-world \
     golang-methods \
   ; do
-    bash ./src/$gpApp/run.bash
+    bash ./src/$goApp/run.bash
   done
 
+- export GOPATH="$GOPATH:$(pwd)"
 - export goApp=http-server-even-more-simpler
 - go install $goApp
 - ./bin/$goApp &
