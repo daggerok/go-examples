@@ -10,3 +10,8 @@ This repository is contains go playground with basic examples of web application
 . link:src/http-server-even-more-simpler/[file server in one line of code]
 . link:src/mvc/[go mvc]
 . link:./src/helo-world/[Hello, World!]
+
+links:
+
+. link:https://golang.org/[golang.org]
+. link:https://godoc.org/[godoc.org]
