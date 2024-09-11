@@ -3,7 +3,31 @@
 .build and run
 [source,bash]
 ----
-export GOPATH="$GOPATH:$PWD"
-go install http-handler
+GOPATH="$(pwd):$GOPATH" go install ./src/http-handler
 ./bin/http-handler
+----
+
+.test
+[source,bash]
+----
+http :8080
+----
+
+[source,httprequest]
+----
+HTTP/1.1 200 OK
+Content-Length: 11
+Content-Type: text/plain; charset=utf-8
+Date: Wed, 11 Sep 2024 03:27:07 GMT
+----
+
+[source]
+----
+ololo world
+----
+
+.cleanup
+[source,bash]
+----
+killall -9 http-handler
 ----

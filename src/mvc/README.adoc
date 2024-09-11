@@ -3,8 +3,63 @@
 .build and run
 [source,bash]
 ----
-export GOPATH="$GOPATH:$PWD"
-cd src/mvc
-go install .
-../../bin/mvc
+GOPATH="$(pwd):$GOPATH" go install ./src/mvc
+./bin/mvc
+----
+
+.test
+[source,bash]
+----
+$ http :8080
+----
+
+[source,httprequest]
+----
+HTTP/1.1 200 OK
+Content-Length: 611
+Content-Type: text/html; charset=utf-8
+Date: Wed, 11 Sep 2024 03:00:39 GMT
+----
+
+[source,html]
+----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Go!</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/apply">Apply</a></li>
+  </ul>
+</nav>
+
+
+
+<p>hey!</p>
+
+<form action="/apply" method="post">
+  <label for="name"></label>
+  <input type="text" name="name" id="name">
+  <input type="submit">
+</form>
+
+
+</body>
+</html>
+----
+
+.cleanup
+[source,bash]
+----
+killall -9 mvc
 ----

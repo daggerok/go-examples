@@ -3,7 +3,32 @@
 .build and run
 [source,bash]
 ----
-export GOPATH="$GOPATH:$PWD"
-go install file-server
+GOPATH="$(pwd):$GOPATH" go install ./src/file-server
 ./bin/file-server
+----
+
+.test
+[source,bash]
+----
+http :8080
+----
+
+[source,httprequest]
+----
+HTTP/1.1 200 OK
+Content-Length: 9
+Content-Type: text/plain; charset=utf-8
+Date: Wed, 11 Sep 2024 03:30:09 GMT
+----
+
+[source]
+----
+----
+
+yep, nothing.
+
+.cleanup
+[source,bash]
+----
+killall -9 file-server
 ----

@@ -3,7 +3,38 @@
 .build and run
 [source,bash]
 ----
-export GOPATH="$GOPATH:$PWD"
-go install http-serve-file
+GOPATH="$(pwd):$GOPATH" go install ./src/http-serve-file
 ./bin/http-serve-file
+----
+
+.test
+[source,bash]
+----
+http :8080
+----
+
+[source,httprequest]
+----
+HTTP/1.1 200 OK
+Content-Length: 177
+Content-Type: text/html; charset=utf-8
+Date: Wed, 11 Sep 2024 03:12:07 GMT
+Last-Modified: Wed, 11 Sep 2024 01:46:05 GMT
+----
+
+[source,html]
+----
+<!doctype html>
+<meta name="viewport" content="width=device-width">
+<pre>
+<a href="README.adoc">README.adoc</a>
+<a href="files/">files/</a>
+<a href="main.go">main.go</a>
+</pre>
+----
+
+.cleanup
+[source,bash]
+----
+killall -9 http-serve-file
 ----
