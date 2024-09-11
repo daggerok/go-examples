@@ -1,0 +1,91 @@
+name: ci
+on: [push]
+jobs:
+  file-server:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.1
+      - run: sudo apt install -yqq httpie # http
+      - run: GOPATH="$(pwd):/home/runner/go/bin" go install ./src/file-server
+      - run: ./bin/file-server &
+      - run: http :8080
+  golang-methods:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.1
+      - run: GOPATH="$(pwd):/home/runner/go/bin" go run ./src/golang-methods
+  handler-func:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.1
+      - run: sudo apt install -yqq httpie # http
+      - run: GOPATH="$(pwd):/home/runner/go/bin" go install ./src/handler-func
+      - run: ./bin/handler-func &
+      - run: http :8080
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.1
+      - run: GOPATH="$(pwd):/home/runner/go/bin" go run ./src/hello-world
+  http-handler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.1
+      - run: sudo apt install -yqq httpie # http
+      - run: GOPATH="$(pwd):/home/runner/go/bin" go install ./src/http-handler
+      #- run: GOPATH="$(pwd):/home/runner/go/bin" go run     ./src/http-handler &
+      - run: ./bin/http-handler &
+      - run: http :8080
+  http-server-even-more-simpler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.1
+      - run: sudo apt install -yqq httpie # http
+      - run: GOPATH="$(pwd):/home/runner/go/bin" go install ./src/http-server-even-more-simpler
+      #- run: GOPATH="$(pwd):/home/runner/go/bin" go run     ./src/http-server-even-more-simpler &
+      - run: ./bin/http-server-even-more-simpler &
+      - run: http :8080
+  mvc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.1
+      - run: sudo apt install -yqq httpie # http
+      - run: GOPATH="$(pwd):/home/runner/go/bin" go install ./src/mvc
+      #- run: GOPATH="$(pwd):/home/runner/go/bin" go run     ./src/mvc &
+      - run: ./bin/mvc &
+      - run: http :8080
+  webapp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.1
+      - run: sudo apt install -yqq httpie psmisc # http, killall
+      - run: GOPATH="$(pwd):/home/runner/go/bin" go install ./src/webapp
+      #- run: GOPATH="$(pwd):/home/runner/go/bin" go run     ./src/webapp &
+      - run: ./bin/webapp &
+      - run: http :8080
+      #- run: killall -9 go
+      - run: killall -9 webapp

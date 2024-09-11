@@ -1,7 +1,7 @@
 = golang-methods image:https://travis-ci.org/daggerok/go-examples.svg?branch=master["Build Status", link="https://travis-ci.org/daggerok/go-examples"]
 
-.build and run
+.run and test
 [source,bash]
 ----
-bash src/golang-methods/run.bash
+GOPATH="$(pwd):$GOPATH" go run ./src/golang-methods
 ----

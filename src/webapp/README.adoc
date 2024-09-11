@@ -2,12 +2,14 @@
 
 .build
 [source,bash]
-export GOPATH="$GOPATH:$PWD"
-go install webapp
+----
+GOPATH="$(pwd):$GOPATH" go install ./src/webapp
+----
 
 .run
 [source,bash]
 ----
+#GOPATH="$(pwd):$GOPATH" go install ./src/webapp
 ./bin/webapp
 ----
 
@@ -15,10 +17,23 @@ go install webapp
 [source,bash]
 ----
 $ http :8080
+----
+
+[source,httprequest]
+----
 HTTP/1.1 200 OK
 Content-Length: 4
 Content-Type: text/plain; charset=utf-8
 Date: Mon, 21 Aug 2017 02:08:05 GMT
+----
 
+[source,bash]
+----
 hey!
+----
+
+.cleanup
+[source,bash]
+----
+killall -9 webapp
 ----

@@ -3,7 +3,31 @@
 .build and run
 [source,bash]
 ----
-export GOPATH="$GOPATH:$PWD"
-go install handler-func
+GOPATH="$(pwd):$GOPATH" go install ./src/handler-func
 ./bin/handler-func
+----
+
+.test
+[source,bash]
+----
+http :8080
+----
+
+[source,httprequest]
+----
+HTTP/1.1 200 OK
+Content-Length: 9
+Content-Type: text/plain; charset=utf-8
+Date: Wed, 11 Sep 2024 03:30:09 GMT
+----
+
+[source]
+----
+hi there!
+----
+
+.cleanup
+[source,bash]
+----
+killall -9 handler-func
 ----
