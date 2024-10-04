@@ -11,7 +11,12 @@ This repository is contains go playground with basic examples of web application
 . link:src/mvc/[go mvc]
 . link:./src/helo-world/[Hello, World!]
 
-links:
+Links:
 
 . link:https://golang.org/[golang.org]
 . link:https://godoc.org/[godoc.org]
+
+Other examples' repositories:
+
+. link:https://github.com/daggerok/go-dependency-producer
+. link:https://github.com/daggerok/go-dependency-consumer
