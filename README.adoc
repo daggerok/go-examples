@@ -18,5 +18,5 @@ Links:
 
 Other examples' repositories:
 
-. link:https://github.com/daggerok/go-dependency-producer
-. link:https://github.com/daggerok/go-dependency-consumer
+. link:https://github.com/daggerok/go-dependency-producer[go-dependency-producer]
+. link:https://github.com/daggerok/go-dependency-consumer[go-dependency-consumer]
